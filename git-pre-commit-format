@@ -343,7 +343,6 @@ fi
 
 echo "You can:"
 echo " ${bold_apply}[a]: Apply the fix${recommend_apply}${n}"
-echo " ${bold_force}[f]: Force and commit anyway${recommend_force}${n}"
 echo " [c]: Cancel the commit"
 echo " [?]: Show help"
 echo
@@ -376,18 +375,6 @@ while true; do
                 echo -n "Press return to continue."
                 read -r < "$tty"
             fi
-            ;;
-
-        [fF] )
-            echo
-            if ! $this_is_a_merge; then
-                echo "Will commit anyway!"
-                echo "You can always abort by quitting your editor with no commit message."
-                echo
-                echo -n "Press return to continue."
-                read -r < "$tty"
-            fi
-            exit 0
             ;;
 
         [cC] )
